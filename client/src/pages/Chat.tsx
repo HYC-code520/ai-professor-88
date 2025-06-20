@@ -93,7 +93,7 @@ const Chat = () => {
             <CardContent className="p-0">
               <div className="bg-gradient-to-r from-accent-blue to-pale-blue p-4 sm:p-6 rounded-t-lg">
                 <div className="flex flex-col sm:flex-row items-center sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <div className="w-20 h-20 sm:w-16 sm:h-16 rounded-full overflow-hidden bg-white flex-shrink-0">
+                  <div className="hidden sm:block w-16 h-16 rounded-full overflow-hidden bg-white flex-shrink-0">
                     <img 
                       src="/lovable-uploads/138926b5-c3fd-40c4-a05e-627288a7842d.png" 
                       alt="Jeremy Kagan"
