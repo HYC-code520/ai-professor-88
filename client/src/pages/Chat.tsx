@@ -172,23 +172,37 @@ const Chat = () => {
                     />
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center mb-2">
-                      <h4 className="font-bold text-white">Prof. Kagan</h4>
-                      <span className="ml-2 px-2 py-1 bg-purple-600 text-white text-xs rounded">NYU STERN</span>
+                    <div className="flex flex-wrap items-center gap-2 mb-3">
+                      <h4 className="font-bold text-white text-lg">Prof. Kagan</h4>
+                      <span className="px-3 py-1 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-xs font-medium rounded-full">NYU STERN</span>
                     </div>
-                    <p className="text-pale-blue text-sm mb-4">
+                    <p className="text-accent-blue font-medium text-sm mb-4">
                       Entrepreneurship & Business
                     </p>
-                    <p className="text-pale-blue text-sm mb-4">
+                    <p className="text-pale-blue text-sm mb-5 leading-relaxed">
                       This digital twin is brought to you through AI training on Professor's past
                     </p>
-                    <ul className="text-pale-blue text-sm space-y-1 mb-4">
-                      <li>• Audio chats</li>
-                      <li>• Textbooks</li>
-                      <li>• Lecture Slides</li>
-                      <li>• Recorded Lectures</li>
-                    </ul>
-                    <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy text-sm">
+                    
+                    <div className="grid grid-cols-2 gap-3 mb-6">
+                      <div className="flex items-center space-x-2 p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                        <div className="w-2 h-2 bg-accent-blue rounded-full"></div>
+                        <span className="text-pale-blue text-sm font-medium">Audio chats</span>
+                      </div>
+                      <div className="flex items-center space-x-2 p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                        <div className="w-2 h-2 bg-accent-blue rounded-full"></div>
+                        <span className="text-pale-blue text-sm font-medium">Textbooks</span>
+                      </div>
+                      <div className="flex items-center space-x-2 p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                        <div className="w-2 h-2 bg-accent-blue rounded-full"></div>
+                        <span className="text-pale-blue text-sm font-medium">Lecture Slides</span>
+                      </div>
+                      <div className="flex items-center space-x-2 p-3 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                        <div className="w-2 h-2 bg-accent-blue rounded-full"></div>
+                        <span className="text-pale-blue text-sm font-medium">Recorded Lectures</span>
+                      </div>
+                    </div>
+                    
+                    <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy text-sm font-medium px-4 py-2 hover:opacity-90 transition-opacity">
                       Make your own Digital Twin here
                     </Button>
                   </div>
