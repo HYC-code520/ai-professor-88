@@ -20,7 +20,7 @@ const ProfessorSection = () => {
                 <img 
                   src="/lovable-uploads/fdddc300-a93a-4962-a134-2237c5d45af1.png" 
                   alt="NYU Stern"
-                  className="absolute -top-4 -right-4 w-12 h-12 object-contain"
+                  className="absolute -top-4 -right-4 w-12 h-12 object-contain rounded-lg"
                 />
               </div>
               <h3 className="text-2xl font-bold text-center mb-2 gradient-text">
