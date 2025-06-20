@@ -91,22 +91,22 @@ const Chat = () => {
           {/* Professor Card */}
           <Card className="glass-effect border-white/10 mb-8 max-w-2xl mx-auto">
             <CardContent className="p-0">
-              <div className="bg-gradient-to-r from-accent-blue to-pale-blue p-6 rounded-t-lg">
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 rounded-full overflow-hidden bg-white">
+              <div className="bg-gradient-to-r from-accent-blue to-pale-blue p-4 sm:p-6 rounded-t-lg">
+                <div className="flex flex-col sm:flex-row items-center sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                  <div className="w-20 h-20 sm:w-16 sm:h-16 rounded-full overflow-hidden bg-white flex-shrink-0">
                     <img 
                       src="/lovable-uploads/138926b5-c3fd-40c4-a05e-627288a7842d.png" 
                       alt="Jeremy Kagan"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-dark-navy">Prof. Jeremy Kagan</h3>
-                    <p className="text-dark-navy/80">NYU Stern, Entrepreneurship</p>
+                  <div className="text-center sm:text-left flex-grow">
+                    <h3 className="text-lg sm:text-xl font-bold text-dark-navy">Prof. Jeremy Kagan</h3>
+                    <p className="text-dark-navy/80 text-sm sm:text-base">NYU Stern, Entrepreneurship</p>
                   </div>
-                  <div className="ml-auto">
+                  <div className="w-full sm:w-auto sm:ml-auto">
                     <Button 
-                      className="bg-white text-accent-blue hover:bg-white/90"
+                      className="bg-white text-accent-blue hover:bg-white/90 w-full sm:w-auto"
                       onClick={handleStartConversation}
                     >
                       Start Conversation
