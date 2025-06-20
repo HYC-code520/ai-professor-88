@@ -9,13 +9,23 @@ const Chat = () => {
   const [message, setMessage] = useState("");
   const [isStarted, setIsStarted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [messages, setMessages] = useState<Array<{text: string, sender: 'user' | 'jeremy'}>>([]);
+  const [messages, setMessages] = useState<Array<{text: string, sender: 'user' | 'jeremy' | 'loading'}>>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleStartConversation = () => {
     setIsStarted(true);
-    setMessages([
-      { text: "Hello, My name is Jeremy, What's your name?", sender: 'jeremy' }
-    ]);
+    setIsLoading(true);
+    
+    // Show loading message first
+    setMessages([{ text: "", sender: 'loading' }]);
+    
+    // After 2 seconds, replace loading with Jeremy's greeting
+    setTimeout(() => {
+      setMessages([
+        { text: "Hello, My name is Jeremy, What's your name?", sender: 'jeremy' }
+      ]);
+      setIsLoading(false);
+    }, 2000);
   };
 
   const handleSendMessage = (e: React.FormEvent) => {
@@ -149,9 +159,11 @@ const Chat = () => {
                           <div className={`max-w-[80%] p-3 rounded-lg ${
                             msg.sender === 'user' 
                               ? 'bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy' 
+                              : msg.sender === 'loading'
+                              ? 'bg-white/10 text-white border border-white/20'
                               : 'bg-white/10 text-white border border-white/20'
                           }`}>
-                            {msg.sender === 'jeremy' && (
+                            {(msg.sender === 'jeremy' || msg.sender === 'loading') && (
                               <div className="flex items-center space-x-2 mb-2">
                                 <div className="w-6 h-6 rounded-full overflow-hidden bg-white">
                                   <img 
@@ -163,7 +175,18 @@ const Chat = () => {
                                 <span className="text-xs text-pale-blue font-medium">Prof. Jeremy</span>
                               </div>
                             )}
-                            <p className="text-sm">{msg.text}</p>
+                            {msg.sender === 'loading' ? (
+                              <div className="flex items-center space-x-1">
+                                <div className="flex space-x-1">
+                                  <div className="w-2 h-2 bg-pale-blue rounded-full animate-bounce"></div>
+                                  <div className="w-2 h-2 bg-pale-blue rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                                  <div className="w-2 h-2 bg-pale-blue rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                                </div>
+                                <span className="text-xs text-pale-blue ml-2">typing...</span>
+                              </div>
+                            ) : (
+                              <p className="text-sm">{msg.text}</p>
+                            )}
                           </div>
                         </div>
                       ))}
