@@ -64,6 +64,7 @@ export default {
         "dark-navy": "#1a2332",
         "accent-blue": "#4a90e2",
         "pale-blue": "#87ceeb",
+        "dark-teal": "#2a4a5a",
       },
       keyframes: {
         "accordion-down": {
