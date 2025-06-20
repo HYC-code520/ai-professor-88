@@ -16,7 +16,7 @@ const App = () => (
       <Router>
         <Switch>
           <Route path="/" component={Index} />
-          <Route path="/chat" component={Chat} />
+          <Route path="/entrepreneur-chat" component={Chat} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route component={NotFound} />
         </Switch>

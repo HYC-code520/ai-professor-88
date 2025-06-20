@@ -72,18 +72,11 @@ const Chat = () => {
             <CardContent className="p-0">
               <div className="bg-gradient-to-r from-accent-blue to-pale-blue p-6 rounded-t-lg">
                 <div className="flex items-center space-x-4">
-                  <div className="relative">
-                    <div className="w-16 h-16 rounded-full overflow-hidden bg-white">
-                      <img 
-                        src="/lovable-uploads/138926b5-c3fd-40c4-a05e-627288a7842d.png" 
-                        alt="Jeremy Kagan"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
+                  <div className="w-16 h-16 rounded-full overflow-hidden bg-white">
                     <img 
-                      src="/lovable-uploads/fdddc300-a93a-4962-a134-2237c5d45af1.png" 
-                      alt="NYU Stern"
-                      className="absolute -top-1 -right-1 w-6 h-6 object-contain rounded"
+                      src="/lovable-uploads/138926b5-c3fd-40c4-a05e-627288a7842d.png" 
+                      alt="Jeremy Kagan"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                   <div>
@@ -111,7 +104,7 @@ const Chat = () => {
                     or how to launch your venture with confidence.
                   </p>
                   <Button 
-                    className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-dark-navy hover:opacity-90 mb-4"
+                    className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy hover:opacity-90 mb-4"
                     onClick={handleStartConversation}
                   >
                     <Volume2 className="w-4 h-4 mr-2" />
@@ -146,11 +139,11 @@ const Chat = () => {
           </Card>
 
           {/* Additional Info Card */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             <Card className="glass-effect border-white/10">
               <CardContent className="p-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-24 h-32 bg-gradient-to-b from-yellow-400 to-yellow-500 rounded-lg overflow-hidden">
+                  <div className="w-24 h-32 bg-gradient-to-b from-accent-blue to-pale-blue rounded-lg overflow-hidden">
                     <img 
                       src="/lovable-uploads/138926b5-c3fd-40c4-a05e-627288a7842d.png" 
                       alt="Prof. Kagan"
@@ -174,32 +167,13 @@ const Chat = () => {
                       <li>• Lecture Slides</li>
                       <li>• Recorded Lectures</li>
                     </ul>
-                    <Button className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-dark-navy text-sm">
+                    <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy text-sm">
                       Make your own Digital Twin here
                     </Button>
                   </div>
                 </div>
               </CardContent>
             </Card>
-
-            <div className="space-y-6">
-              <Card className="glass-effect border-white/10">
-                <CardContent className="p-6">
-                  <h4 className="font-bold text-white mb-4">Quick Questions</h4>
-                  <div className="space-y-2">
-                    <Button variant="ghost" className="w-full text-left text-pale-blue hover:text-accent-blue hover:bg-white/5 justify-start">
-                      How do I validate my business idea?
-                    </Button>
-                    <Button variant="ghost" className="w-full text-left text-pale-blue hover:text-accent-blue hover:bg-white/5 justify-start">
-                      What's the best way to find co-founders?
-                    </Button>
-                    <Button variant="ghost" className="w-full text-left text-pale-blue hover:text-accent-blue hover:bg-white/5 justify-start">
-                      How should I approach investors?
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
           </div>
         </div>
       </div>
