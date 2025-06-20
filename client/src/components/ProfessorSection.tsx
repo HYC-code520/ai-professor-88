@@ -9,16 +9,18 @@ const ProfessorSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in">
             <div className="glass-effect rounded-2xl p-8 hover-glow">
-              <div className="relative w-32 h-32 rounded-full bg-gradient-to-r from-accent-blue to-pale-blue mx-auto mb-6 flex items-center justify-center overflow-hidden">
-                <img 
-                  src="/lovable-uploads/138926b5-c3fd-40c4-a05e-627288a7842d.png" 
-                  alt="Jeremy Kagan"
-                  className="w-full h-full object-cover scale-110"
-                />
+              <div className="relative mx-auto mb-6 w-fit">
+                <div className="w-32 h-32 rounded-full bg-gradient-to-r from-accent-blue to-pale-blue flex items-center justify-center overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/138926b5-c3fd-40c4-a05e-627288a7842d.png" 
+                    alt="Jeremy Kagan"
+                    className="w-full h-full object-cover scale-110"
+                  />
+                </div>
                 <img 
                   src="/lovable-uploads/fdddc300-a93a-4962-a134-2237c5d45af1.png" 
                   alt="NYU Stern"
-                  className="absolute top-0 right-0 w-10 h-10 object-contain"
+                  className="absolute -top-2 -right-2 w-10 h-10 object-contain bg-white rounded-full p-1 shadow-lg"
                 />
               </div>
               <h3 className="text-2xl font-bold text-center mb-2 gradient-text">
