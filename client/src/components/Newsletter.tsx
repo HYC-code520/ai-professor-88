@@ -25,7 +25,7 @@ const Newsletter = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Join Us
         </h2>
-        <h3 className="text-xl gradient-text font-semibold mb-6">aitutor</h3>
+        <h3 className="text-xl gradient-text font-semibold mb-6">AI tutors</h3>
         <p className="text-pale-blue text-lg mb-8 max-w-2xl mx-auto">
           Stay up to date with our journey and get notified when we add new experts
         </p>
