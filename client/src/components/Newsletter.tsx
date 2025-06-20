@@ -20,7 +20,7 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-r from-dark-teal/50 to-dark-navy/70">
+    <section className="py-20 bg-gradient-to-l from-dark-teal/50 to-dark-navy/70">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Join Us
