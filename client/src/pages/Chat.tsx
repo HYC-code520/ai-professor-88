@@ -1,13 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { ArrowLeft, Volume2, Send } from "lucide-react";
+import { ArrowLeft, Volume2, Send, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
 
 const Chat = () => {
   const [message, setMessage] = useState("");
   const [isStarted, setIsStarted] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleStartConversation = () => {
     setIsStarted(true);
@@ -34,15 +35,35 @@ const Chat = () => {
               <span className="text-xl font-bold gradient-text">AI tutors</span>
             </div>
             
-            <div className="flex items-center space-x-2">
+            <nav className="hidden md:flex items-center space-x-2">
               <Button variant="ghost" className="text-pale-blue hover:text-accent-blue hover:bg-white/5">
                 Log in
               </Button>
               <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy hover:opacity-90">
                 Sign up
               </Button>
-            </div>
+            </nav>
+
+            <button 
+              className="md:hidden text-pale-blue"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
+
+          {isMenuOpen && (
+            <div className="md:hidden mt-4 pb-4 border-t border-white/10">
+              <nav className="flex flex-col space-y-2 mt-4">
+                <Button variant="ghost" className="text-pale-blue hover:text-accent-blue hover:bg-white/5 justify-start">
+                  Log in
+                </Button>
+                <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy hover:opacity-90 justify-start">
+                  Sign up
+                </Button>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
