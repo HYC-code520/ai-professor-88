@@ -14,7 +14,7 @@ const Header = () => {
             <div className="w-8 h-8 rounded-full bg-gradient-to-r from-accent-blue to-pale-blue flex items-center justify-center">
               <span className="text-dark-navy font-bold text-sm">AI</span>
             </div>
-            <span className="text-xl font-bold gradient-text">Egg Chicken</span>
+            <span className="text-xl font-bold gradient-text">AI tutor</span>
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
