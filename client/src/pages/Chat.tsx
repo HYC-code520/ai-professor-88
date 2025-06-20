@@ -27,19 +27,11 @@ const Chat = () => {
       <header className="border-b border-white/10 bg-white/5 backdrop-blur-md">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Link href="/">
-                <Button variant="ghost" size="sm" className="text-pale-blue hover:text-accent-blue">
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  Back
-                </Button>
-              </Link>
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-accent-blue to-pale-blue flex items-center justify-center">
-                  <span className="text-dark-navy font-bold text-sm">AI</span>
-                </div>
-                <span className="text-xl font-bold gradient-text">AI tutors</span>
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-accent-blue to-pale-blue flex items-center justify-center">
+                <span className="text-dark-navy font-bold text-sm">AI</span>
               </div>
+              <span className="text-xl font-bold gradient-text">AI tutors</span>
             </div>
             
             <div className="flex items-center space-x-2">
@@ -59,6 +51,14 @@ const Chat = () => {
         <div className="max-w-4xl mx-auto">
           {/* Page Title */}
           <div className="text-center mb-12">
+            <div className="mb-4">
+              <Link href="/">
+                <button className="text-pale-blue hover:text-accent-blue transition-colors text-sm inline-flex items-center">
+                  <ArrowLeft className="w-4 h-4 mr-1" />
+                  Back to homepage
+                </button>
+              </Link>
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
               Pave your way to Entrepreneurship
             </h1>
