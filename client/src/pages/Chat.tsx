@@ -9,15 +9,19 @@ const Chat = () => {
   const [message, setMessage] = useState("");
   const [isStarted, setIsStarted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [messages, setMessages] = useState<Array<{text: string, sender: 'user' | 'jeremy'}>>([]);
 
   const handleStartConversation = () => {
     setIsStarted(true);
+    setMessages([
+      { text: "Hello, My name is Jeremy, What's your name?", sender: 'jeremy' }
+    ]);
   };
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
     if (message.trim()) {
-      // Handle message sending logic here
+      setMessages(prev => [...prev, { text: message, sender: 'user' }]);
       setMessage("");
     }
   };
@@ -136,9 +140,31 @@ const Chat = () => {
               ) : (
                 <div className="p-6">
                   {/* Chat Area */}
-                  <div className="min-h-[300px] mb-4 bg-white/5 rounded-lg p-4">
-                    <div className="text-pale-blue text-center py-8">
-                      Chat interface will appear here...
+                  <div className="min-h-[300px] mb-4 bg-white/5 rounded-lg p-4 overflow-y-auto">
+                    <div className="space-y-3">
+                      {messages.map((msg, index) => (
+                        <div key={index} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+                          <div className={`max-w-[80%] p-3 rounded-lg ${
+                            msg.sender === 'user' 
+                              ? 'bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy' 
+                              : 'bg-white/10 text-white border border-white/20'
+                          }`}>
+                            {msg.sender === 'jeremy' && (
+                              <div className="flex items-center space-x-2 mb-2">
+                                <div className="w-6 h-6 rounded-full overflow-hidden bg-white">
+                                  <img 
+                                    src="/lovable-uploads/138926b5-c3fd-40c4-a05e-627288a7842d.png" 
+                                    alt="Jeremy"
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
+                                <span className="text-xs text-pale-blue font-medium">Prof. Jeremy</span>
+                              </div>
+                            )}
+                            <p className="text-sm">{msg.text}</p>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                   
