@@ -13,7 +13,7 @@ const ProfessorSection = () => {
                 <img 
                   src="/lovable-uploads/138926b5-c3fd-40c4-a05e-627288a7842d.png" 
                   alt="Jeremy Kagan"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover scale-110"
                 />
               </div>
               <h3 className="text-2xl font-bold text-center mb-4 gradient-text">
