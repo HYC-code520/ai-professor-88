@@ -2,7 +2,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Zap, Clock, DollarSign, Target, ArrowRight } from "lucide-react";
-import { Link } from "wouter";
 
 const FeaturesSection = () => {
   const features = [
@@ -55,15 +54,13 @@ const FeaturesSection = () => {
         </div>
         
         <div className="text-center">
-          <Link href="/chat">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy hover:opacity-90 px-8 py-6 text-lg hover-glow group"
-            >
-              Try it for Free
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
+          <Button 
+            size="lg" 
+            className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy hover:opacity-90 px-8 py-6 text-lg hover-glow group"
+          >
+            Try it for Free
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Button>
         </div>
       </div>
     </section>
