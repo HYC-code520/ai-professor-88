@@ -164,7 +164,7 @@ const Chat = () => {
             <Card className="glass-effect border-white/10">
               <CardContent className="p-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-24 h-32 bg-gradient-to-b from-accent-blue to-pale-blue rounded-lg overflow-hidden">
+                  <div className="hidden sm:block w-24 h-32 bg-gradient-to-b from-accent-blue to-pale-blue rounded-lg overflow-hidden">
                     <img 
                       src="/lovable-uploads/138926b5-c3fd-40c4-a05e-627288a7842d.png" 
                       alt="Prof. Kagan"
