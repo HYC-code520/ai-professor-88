@@ -17,18 +17,13 @@ const Header = () => {
             <span className="text-xl font-bold gradient-text">AI tutor</span>
           </div>
           
-          <nav className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-pale-blue hover:text-accent-blue transition-colors">Home</a>
-            <a href="#about" className="text-pale-blue hover:text-accent-blue transition-colors">About</a>
-            <a href="#mentorship" className="text-pale-blue hover:text-accent-blue transition-colors">Mentorship</a>
-            <div className="flex items-center space-x-4">
-              <Button variant="ghost" className="text-pale-blue hover:text-accent-blue hover:bg-white/5">
-                Log in
-              </Button>
-              <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy hover:opacity-90">
-                Sign up
-              </Button>
-            </div>
+          <nav className="hidden md:flex items-center space-x-4">
+            <Button variant="ghost" className="text-pale-blue hover:text-accent-blue hover:bg-white/5">
+              Log in
+            </Button>
+            <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy hover:opacity-90">
+              Sign up
+            </Button>
           </nav>
 
           <button 
@@ -41,18 +36,13 @@ const Header = () => {
 
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-white/10">
-            <nav className="flex flex-col space-y-4 mt-4">
-              <a href="#home" className="text-pale-blue hover:text-accent-blue transition-colors">Home</a>
-              <a href="#about" className="text-pale-blue hover:text-accent-blue transition-colors">About</a>
-              <a href="#mentorship" className="text-pale-blue hover:text-accent-blue transition-colors">Mentorship</a>
-              <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="ghost" className="text-pale-blue hover:text-accent-blue hover:bg-white/5 justify-start">
-                  Log in
-                </Button>
-                <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy hover:opacity-90 justify-start">
-                  Sign up
-                </Button>
-              </div>
+            <nav className="flex flex-col space-y-2 mt-4">
+              <Button variant="ghost" className="text-pale-blue hover:text-accent-blue hover:bg-white/5 justify-start">
+                Log in
+              </Button>
+              <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy hover:opacity-90 justify-start">
+                Sign up
+              </Button>
             </nav>
           </div>
         )}
