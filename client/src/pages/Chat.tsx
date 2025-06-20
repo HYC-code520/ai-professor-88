@@ -32,12 +32,14 @@ const Chat = () => {
       <header className="border-b border-white/10 bg-white/5 backdrop-blur-md">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-accent-blue to-pale-blue flex items-center justify-center">
-                <span className="text-dark-navy font-bold text-sm">AI</span>
+            <Link href="/">
+              <div className="flex items-center space-x-2 hover:opacity-80 transition-opacity cursor-pointer">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-accent-blue to-pale-blue flex items-center justify-center">
+                  <span className="text-dark-navy font-bold text-sm">AI</span>
+                </div>
+                <span className="text-xl font-bold gradient-text">AI tutors</span>
               </div>
-              <span className="text-xl font-bold gradient-text">AI tutors</span>
-            </div>
+            </Link>
             
             <nav className="hidden md:flex items-center space-x-2">
               <Button variant="ghost" className="text-pale-blue hover:text-accent-blue hover:bg-white/5">
