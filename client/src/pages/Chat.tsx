@@ -160,7 +160,7 @@ const Chat = () => {
           </Card>
 
           {/* Additional Info Card */}
-          <div className="max-w-2xl mx-auto hidden md:block">
+          <div className="max-w-2xl mx-auto">
             <Card className="glass-effect border-white/10">
               <CardContent className="p-6">
                 <div className="flex items-start space-x-4">
