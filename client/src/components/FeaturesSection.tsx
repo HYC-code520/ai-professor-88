@@ -2,6 +2,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Zap, Clock, DollarSign, Target, ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 
 const FeaturesSection = () => {
   const features = [
