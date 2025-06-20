@@ -16,9 +16,16 @@ const ProfessorSection = () => {
                   className="w-full h-full object-cover scale-110"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-center mb-4 gradient-text">
+              <h3 className="text-2xl font-bold text-center mb-2 gradient-text">
                 Jeremy Kagan
               </h3>
+              <div className="flex items-center justify-center mb-4">
+                <img 
+                  src="/lovable-uploads/fdddc300-a93a-4962-a134-2237c5d45af1.png" 
+                  alt="NYU Stern"
+                  className="w-20 h-20 object-contain"
+                />
+              </div>
               <p className="text-pale-blue text-center leading-relaxed">
                 Professor at NYU Stern School of Business and a seasoned entrepreneur. 
                 He specializes in helping founders launch ventures with clarity and confidence.
