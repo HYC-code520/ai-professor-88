@@ -52,50 +52,23 @@ const Hero = () => {
 
           {/* Right Video */}
           <div className="flex justify-center lg:justify-end animate-fade-in">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black max-w-sm w-full">
-              <video 
-                ref={videoRef}
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                className="w-full h-auto block"
-                onLoadedData={() => {
-                  console.log('Video loaded successfully');
-                  setVideoLoaded(true);
-                }}
-                onError={(e) => {
-                  console.error('Video error:', e);
-                  setVideoError(true);
-                }}
-                onCanPlay={() => {
-                  console.log('Video can play');
-                }}
-              >
-                <source src="/test-display.mp4" type="video/mp4" />
-              </video>
-              
-              {!videoLoaded && !videoError && (
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-accent-blue/20 to-pale-blue/20 rounded-2xl">
-                  <div className="text-center text-pale-blue p-8">
-                    <div className="w-12 h-12 border-4 border-pale-blue border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                    <p className="text-sm opacity-80">Loading video...</p>
-                  </div>
-                </div>
-              )}
-              
-              {videoError && (
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-accent-blue/20 to-pale-blue/20 rounded-2xl">
-                  <div className="text-center text-pale-blue p-8">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-r from-accent-blue to-pale-blue flex items-center justify-center mx-auto mb-4">
-                      <Play className="w-8 h-8 text-dark-navy" />
-                    </div>
-                    <h3 className="text-lg font-semibold mb-2">AI Tutoring Demo</h3>
-                    <p className="text-sm opacity-80">Interactive learning experience</p>
-                  </div>
-                </div>
-              )}
-            </div>
+            <video 
+              ref={videoRef}
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="w-full max-w-sm h-auto rounded-2xl shadow-2xl border border-white/10"
+              style={{ minHeight: '300px' }}
+              onLoadedData={() => {
+                setVideoLoaded(true);
+              }}
+              onError={(e) => {
+                setVideoError(true);
+              }}
+            >
+              <source src="/jeremy-video.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>
