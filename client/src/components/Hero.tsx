@@ -53,14 +53,15 @@ const Hero = () => {
           {/* Right Video */}
           <div className="flex justify-center lg:justify-end animate-fade-in">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl glass-effect border border-white/10 max-w-md w-full">
-              <div className="bg-gradient-to-br from-accent-blue/20 to-pale-blue/20" style={{ aspectRatio: '9/16', minHeight: '400px' }}>
+              <div className="bg-gradient-to-br from-accent-blue/20 to-pale-blue/20 flex items-center justify-center" style={{ minHeight: '400px' }}>
                 <video 
                   ref={videoRef}
                   autoPlay 
                   loop 
                   muted 
                   playsInline
-                  className="w-full h-full object-cover"
+                  className="max-w-full max-h-full object-contain"
+                  style={{ height: 'auto', width: 'auto' }}
                   onLoadedData={() => {
                     setVideoLoaded(true);
                   }}
