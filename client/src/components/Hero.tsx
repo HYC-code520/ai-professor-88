@@ -1,9 +1,14 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Play } from "lucide-react";
 import { Link } from "wouter";
+import { useState, useRef } from "react";
 
 const Hero = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-12">
       <div className="container mx-auto px-4">
@@ -47,20 +52,59 @@ const Hero = () => {
 
           {/* Right Video */}
           <div className="flex justify-center lg:justify-end animate-fade-in">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl glass-effect border border-white/10 max-w-md w-full">
-              <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                className="w-full h-auto object-cover"
-                style={{ aspectRatio: '9/16' }}
-              >
-                <source src="/ai-tutor-video.mp4" type="video/mp4" />
-                <source src="/ai-tutor-video.mov" type="video/quicktime" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-navy/20 to-transparent pointer-events-none"></div>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl glass-effect border border-white/10 max-w-md w-full min-h-[400px]">
+              {!videoError ? (
+                <video 
+                  ref={videoRef}
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  controls={false}
+                  className="w-full h-full object-cover"
+                  style={{ aspectRatio: '9/16' }}
+                  onLoadedData={() => {
+                    setVideoLoaded(true);
+                    console.log('Video loaded successfully');
+                  }}
+                  onError={(e) => {
+                    console.error('Video error:', e);
+                    setVideoError(true);
+                  }}
+                  onCanPlay={() => {
+                    console.log('Video can play');
+                    if (videoRef.current) {
+                      videoRef.current.play().catch(e => console.log('Autoplay prevented:', e));
+                    }
+                  }}
+                >
+                  <source src="/ai-tutor-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                // Fallback content when video fails
+                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-accent-blue/20 to-pale-blue/20">
+                  <div className="text-center text-pale-blue p-8">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-r from-accent-blue to-pale-blue flex items-center justify-center mx-auto mb-4">
+                      <Play className="w-8 h-8 text-dark-navy" />
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">AI Tutoring Demo</h3>
+                    <p className="text-sm opacity-80">Interactive learning experience</p>
+                  </div>
+                </div>
+              )}
+              
+              {!videoLoaded && !videoError && (
+                // Loading state
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-accent-blue/10 to-pale-blue/10 backdrop-blur-sm">
+                  <div className="text-center text-pale-blue">
+                    <div className="w-8 h-8 border-2 border-accent-blue border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+                    <p className="text-sm">Loading video...</p>
+                  </div>
+                </div>
+              )}
+              
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-navy/10 to-transparent pointer-events-none"></div>
             </div>
           </div>
         </div>
