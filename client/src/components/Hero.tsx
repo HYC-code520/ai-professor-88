@@ -184,12 +184,12 @@ const Hero = () => {
                   Your browser does not support the video tag.
                 </video>
                 
-                {/* Initial page load spinner overlay - transparent background */}
+                {/* Initial page load spinner overlay - fully transparent */}
                 {showInitialLoader && (
                   <div className="absolute inset-0 rounded-2xl flex items-center justify-center z-20">
-                    <div className="flex flex-col items-center bg-black/60 px-6 py-4 rounded-lg backdrop-blur-sm">
-                      <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin mb-2"></div>
-                      <div className="text-white text-sm font-medium">Video Loading...</div>
+                    <div className="flex flex-col items-center">
+                      <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin mb-2 drop-shadow-lg"></div>
+                      <div className="text-white text-sm font-medium drop-shadow-lg">Video Loading...</div>
                     </div>
                   </div>
                 )}
