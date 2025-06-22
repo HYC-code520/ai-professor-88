@@ -250,9 +250,11 @@ const Chat = () => {
                       </div>
                     </div>
                     
-                    <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy text-sm font-medium px-4 py-2 hover:opacity-90 transition-opacity">
-                      Make your own Digital Twin here
-                    </Button>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf4ub0gWhBIYV7kyR4FAbvdEKa8X3E43pxd8ZacTsDZZ07dcQ/viewform" target="_blank" rel="noopener noreferrer">
+                      <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy text-sm font-medium px-4 py-2 hover:opacity-90 transition-opacity">
+                        Make your own Digital Twin here
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </CardContent>
