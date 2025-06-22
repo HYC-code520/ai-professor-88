@@ -2,8 +2,47 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "wouter";
+import { useEffect, useRef, useState } from "react";
 
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleLoadStart = () => {
+      console.log("Video load started");
+    };
+
+    const handleCanPlay = () => {
+      setVideoLoaded(true);
+      // Force play on mobile devices
+      if (video.paused) {
+        video.play().catch(console.error);
+      }
+    };
+
+    const handleLoadedData = () => {
+      setVideoLoaded(true);
+    };
+
+    // Add event listeners
+    video.addEventListener('loadstart', handleLoadStart);
+    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('loadeddata', handleLoadedData);
+
+    // Force load on mount
+    video.load();
+
+    return () => {
+      video.removeEventListener('loadstart', handleLoadStart);
+      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('loadeddata', handleLoadedData);
+    };
+  }, []);
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-12">
       <div className="container mx-auto px-4">
@@ -49,13 +88,22 @@ const Hero = () => {
             {/* Right side - Video */}
             <div className="lg:col-span-2 relative lg:pr-8">
               <div className="aspect-[3/4] rounded-2xl overflow-hidden max-w-sm mx-auto relative">
+                {!videoLoaded && (
+                  <div className="absolute inset-0 bg-dark-navy/50 rounded-2xl flex items-center justify-center">
+                    <div className="w-8 h-8 border-2 border-accent-blue border-t-transparent rounded-full animate-spin"></div>
+                  </div>
+                )}
                 <video 
+                  ref={videoRef}
                   className="w-full h-full object-cover"
                   autoPlay
                   muted
                   loop
                   playsInline
+                  preload="metadata"
+                  style={{ opacity: videoLoaded ? 1 : 0 }}
                 >
+                  <source src="/demo-copy.mov" type="video/quicktime" />
                   <source src="/demo-copy.mov" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
