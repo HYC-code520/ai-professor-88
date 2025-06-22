@@ -47,7 +47,7 @@ const Hero = () => {
 
           {/* Right side - Video */}
           <div className="relative">
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-sm max-w-md mx-auto lg:mx-0">
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-sm max-w-md mx-auto lg:mx-0 relative">
               <video 
                 className="w-full h-full object-cover"
                 autoPlay
@@ -58,6 +58,17 @@ const Hero = () => {
                 <source src="/demo.mov" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
+              
+              {/* Feather effect overlay */}
+              <div className="absolute inset-0 pointer-events-none" style={{
+                mask: 'radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.3) 85%, rgba(0,0,0,0.7) 95%, rgba(0,0,0,1) 100%)',
+                WebkitMask: 'radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.3) 85%, rgba(0,0,0,0.7) 95%, rgba(0,0,0,1) 100%)'
+              }}></div>
+              
+              {/* Alternative feather effect using box-shadow inset */}
+              <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{
+                boxShadow: 'inset 0 0 50px 10px rgba(0,0,0,0.3), inset 0 0 100px 30px rgba(0,0,0,0.1)'
+              }}></div>
             </div>
             
             {/* Decorative elements */}
