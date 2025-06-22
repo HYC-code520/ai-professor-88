@@ -74,7 +74,7 @@ const Hero = () => {
                   console.error('Video error target:', e.target);
                 }}
               >
-                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                <source src="/professor-jeremy.mp4" type="video/mp4" />
                 <p className="text-black">Your browser does not support HTML5 video.</p>
               </video>
               <p className="text-black mt-2">If you see this yellow box but no video, there's a video loading issue.</p>
