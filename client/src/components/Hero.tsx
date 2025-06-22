@@ -20,10 +20,12 @@ const Hero = () => {
 
     const handleCanPlay = () => {
       setVideoLoaded(true);
-      // Force play on mobile devices
-      if (video.paused) {
-        video.play().catch(console.error);
-      }
+      // Smoother play initialization
+      setTimeout(() => {
+        if (video.paused) {
+          video.play().catch(console.error);
+        }
+      }, 50);
     };
 
     const handleLoadedData = () => {
@@ -31,12 +33,14 @@ const Hero = () => {
     };
 
     const handlePause = () => {
-      // Automatically resume if paused unexpectedly
-      setTimeout(() => {
-        if (video.paused && !video.ended) {
-          video.play().catch(console.error);
-        }
-      }, 100);
+      // Automatically resume if paused unexpectedly, but not during initial load
+      if (videoLoaded) {
+        setTimeout(() => {
+          if (video.paused && !video.ended) {
+            video.play().catch(console.error);
+          }
+        }, 200);
+      }
     };
 
     const handleStalled = () => {
@@ -67,12 +71,12 @@ const Hero = () => {
     // Force load on mount
     video.load();
 
-    // Set up interval to check video status
+    // Set up interval to check video status - reduced frequency to prevent glitches
     const checkVideoInterval = setInterval(() => {
-      if (video.paused && !video.ended && videoLoaded) {
+      if (video.paused && !video.ended && videoLoaded && isInView) {
         video.play().catch(console.error);
       }
-    }, 3000);
+    }, 5000);
 
     return () => {
       video.removeEventListener('loadstart', handleLoadStart);
@@ -95,14 +99,8 @@ const Hero = () => {
       (entries) => {
         const [entry] = entries;
         setIsInView(entry.isIntersecting);
-        
-        if (entry.isIntersecting && videoLoaded) {
-          video.play().catch(console.error);
-        } else if (!entry.isIntersecting) {
-          video.pause();
-        }
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
     observer.observe(video);
@@ -110,7 +108,7 @@ const Hero = () => {
     return () => {
       observer.disconnect();
     };
-  }, [videoLoaded]);
+  }, []);
 
   // Initial loader timer
   useEffect(() => {
@@ -173,11 +171,7 @@ const Hero = () => {
                   muted
                   loop
                   playsInline
-                  preload="auto"
-                  controls={false}
-                  disablePictureInPicture
-                  webkit-playsinline="true"
-                  x5-playsinline="true"
+                  preload="metadata"
                 >
                   <source src="/demo-copy.mov" type="video/quicktime" />
                   <source src="/demo-copy.mov" type="video/mp4" />
