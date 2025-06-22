@@ -56,8 +56,8 @@ const Hero = () => {
                 className="w-full h-auto object-cover"
                 style={{ aspectRatio: '9/16' }}
               >
-                <source src="/ai-tutor-video.mov" type="video/quicktime" />
                 <source src="/ai-tutor-video.mp4" type="video/mp4" />
+                <source src="/ai-tutor-video.mov" type="video/quicktime" />
                 Your browser does not support the video tag.
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-dark-navy/20 to-transparent pointer-events-none"></div>
