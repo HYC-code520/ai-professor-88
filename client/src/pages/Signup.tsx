@@ -18,7 +18,7 @@ const Signup = () => {
 
   const handleSkip = () => {
     console.log("Skip clicked");
-    window.history.back();
+    alert("Skip functionality not implemented yet");
   };
 
   return (
