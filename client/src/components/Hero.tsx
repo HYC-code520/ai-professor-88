@@ -8,6 +8,7 @@ const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
+  const [showInitialLoader, setShowInitialLoader] = useState(true);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -111,6 +112,15 @@ const Hero = () => {
     };
   }, [videoLoaded]);
 
+  // Initial loader timer
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowInitialLoader(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-12">
       <div className="container mx-auto px-4">
@@ -156,8 +166,18 @@ const Hero = () => {
             {/* Right side - Video */}
             <div className="lg:col-span-2 relative lg:pr-8">
               <div className="aspect-[3/4] rounded-2xl overflow-hidden max-w-sm mx-auto relative">
-                {!videoLoaded && (
-                  <div className="absolute inset-0 bg-dark-navy/50 rounded-2xl flex items-center justify-center">
+                {/* Initial page load spinner */}
+                {showInitialLoader && (
+                  <div className="absolute inset-0 bg-dark-navy/80 rounded-2xl flex items-center justify-center z-20">
+                    <div className="flex flex-col items-center">
+                      <div className="w-12 h-12 border-4 border-accent-blue border-t-transparent rounded-full animate-spin mb-2"></div>
+                      <div className="text-pale-blue text-sm">Loading...</div>
+                    </div>
+                  </div>
+                )}
+                {/* Video loading spinner */}
+                {!videoLoaded && !showInitialLoader && (
+                  <div className="absolute inset-0 bg-dark-navy/50 rounded-2xl flex items-center justify-center z-10">
                     <div className="w-8 h-8 border-2 border-accent-blue border-t-transparent rounded-full animate-spin"></div>
                   </div>
                 )}
