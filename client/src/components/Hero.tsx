@@ -14,79 +14,25 @@ const Hero = () => {
     const video = videoRef.current;
     if (!video) return;
 
-    const handleLoadStart = () => {
-      console.log("Video load started");
-    };
-
     const handleCanPlay = () => {
-      setVideoLoaded(true);
-      // Smoother play initialization
-      setTimeout(() => {
-        if (video.paused) {
-          video.play().catch(console.error);
-        }
-      }, 50);
+      if (!videoLoaded) {
+        setVideoLoaded(true);
+      }
     };
 
     const handleLoadedData = () => {
-      setVideoLoaded(true);
-    };
-
-    const handlePause = () => {
-      // Automatically resume if paused unexpectedly, but not during initial load
-      if (videoLoaded) {
-        setTimeout(() => {
-          if (video.paused && !video.ended) {
-            video.play().catch(console.error);
-          }
-        }, 200);
+      if (!videoLoaded) {
+        setVideoLoaded(true);
       }
     };
 
-    const handleStalled = () => {
-      // Handle network stalls
-      video.load();
-    };
-
-    const handleError = () => {
-      console.log("Video error, attempting reload");
-      video.load();
-    };
-
-    const handleEnded = () => {
-      // Ensure loop works properly
-      video.currentTime = 0;
-      video.play().catch(console.error);
-    };
-
-    // Add event listeners
-    video.addEventListener('loadstart', handleLoadStart);
+    // Add minimal event listeners
     video.addEventListener('canplay', handleCanPlay);
     video.addEventListener('loadeddata', handleLoadedData);
-    video.addEventListener('pause', handlePause);
-    video.addEventListener('stalled', handleStalled);
-    video.addEventListener('error', handleError);
-    video.addEventListener('ended', handleEnded);
-
-    // Force load on mount
-    video.load();
-
-    // Set up interval to check video status - reduced frequency to prevent glitches
-    const checkVideoInterval = setInterval(() => {
-      if (video.paused && !video.ended && videoLoaded && isInView) {
-        video.play().catch(console.error);
-      }
-    }, 5000);
 
     return () => {
-      video.removeEventListener('loadstart', handleLoadStart);
       video.removeEventListener('canplay', handleCanPlay);
       video.removeEventListener('loadeddata', handleLoadedData);
-      video.removeEventListener('pause', handlePause);
-      video.removeEventListener('stalled', handleStalled);
-      video.removeEventListener('error', handleError);
-      video.removeEventListener('ended', handleEnded);
-      clearInterval(checkVideoInterval);
     };
   }, [videoLoaded]);
 
@@ -166,12 +112,13 @@ const Hero = () => {
               <div className="aspect-[3/4] rounded-2xl overflow-hidden max-w-sm mx-auto relative">
                 <video 
                   ref={videoRef}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-opacity duration-300"
                   autoPlay
                   muted
                   loop
                   playsInline
                   preload="metadata"
+                  style={{ opacity: videoLoaded ? 1 : 0.3 }}
                 >
                   <source src="/demo-copy.mov" type="video/quicktime" />
                   <source src="/demo-copy.mov" type="video/mp4" />
