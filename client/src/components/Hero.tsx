@@ -59,22 +59,18 @@ const Hero = () => {
                 Your browser does not support the video tag.
               </video>
               
-              {/* Enhanced feather effect overlay */}
+              {/* Perfect background-matched feather overlay */}
               <div className="absolute inset-0 pointer-events-none rounded-2xl" style={{
-                background: 'radial-gradient(ellipse at center, transparent 45%, rgba(18, 25, 38, 0.1) 65%, rgba(18, 25, 38, 0.3) 75%, rgba(18, 25, 38, 0.6) 85%, rgba(18, 25, 38, 0.9) 95%, rgba(18, 25, 38, 1) 100%)'
+                background: 'radial-gradient(ellipse at center, transparent 40%, rgba(26, 35, 50, 0.2) 60%, rgba(26, 35, 50, 0.5) 70%, rgba(26, 35, 50, 0.8) 80%, rgba(26, 35, 50, 0.95) 90%, rgba(26, 35, 50, 1) 100%)'
               }}></div>
               
-              {/* Additional edge fade using linear gradients */}
+              {/* Gradient-matched edge blending */}
               <div className="absolute inset-0 pointer-events-none rounded-2xl" style={{
                 background: `
-                  linear-gradient(to right, rgba(18, 25, 38, 0.8) 0%, transparent 15%, transparent 85%, rgba(18, 25, 38, 0.8) 100%),
-                  linear-gradient(to bottom, rgba(18, 25, 38, 0.8) 0%, transparent 15%, transparent 85%, rgba(18, 25, 38, 0.8) 100%)
+                  linear-gradient(135deg, rgba(26, 35, 50, 0.9) 0%, transparent 20%, transparent 80%, rgba(42, 74, 90, 0.9) 100%),
+                  linear-gradient(to right, rgba(26, 35, 50, 0.7) 0%, transparent 25%, transparent 75%, rgba(42, 74, 90, 0.7) 100%),
+                  linear-gradient(to bottom, rgba(26, 35, 50, 0.7) 0%, transparent 25%, transparent 75%, rgba(42, 74, 90, 0.7) 100%)
                 `
-              }}></div>
-              
-              {/* Subtle inset shadow for depth */}
-              <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{
-                boxShadow: 'inset 0 0 80px 20px rgba(18, 25, 38, 0.4)'
               }}></div>
             </div>
             
