@@ -6,6 +6,8 @@ import { Router, Route, Switch } from "wouter";
 import { queryClient } from "@/lib/queryClient";
 import Index from "./pages/Index";
 import Chat from "./pages/Chat";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
 
 const App = () => (
@@ -17,6 +19,8 @@ const App = () => (
         <Switch>
           <Route path="/" component={Index} />
           <Route path="/entrepreneur-chat" component={Chat} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route component={NotFound} />
         </Switch>

@@ -21,12 +21,16 @@ const Header = () => {
           </Link>
           
           <nav className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="text-pale-blue hover:text-accent-blue hover:bg-white/5">
-              Log in
-            </Button>
-            <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy hover:opacity-90">
-              Sign up
-            </Button>
+            <Link href="/login">
+              <Button variant="ghost" className="text-pale-blue hover:text-accent-blue hover:bg-white/5">
+                Log in
+              </Button>
+            </Link>
+            <Link href="/signup">
+              <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy hover:opacity-90">
+                Sign up
+              </Button>
+            </Link>
           </nav>
 
           <button 
@@ -40,12 +44,16 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-white/10">
             <nav className="flex flex-col space-y-2 mt-4">
-              <Button variant="ghost" className="text-pale-blue hover:text-accent-blue hover:bg-white/5 justify-start">
-                Log in
-              </Button>
-              <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy hover:opacity-90 justify-start">
-                Sign up
-              </Button>
+              <Link href="/login">
+                <Button variant="ghost" className="text-pale-blue hover:text-accent-blue hover:bg-white/5 justify-start w-full">
+                  Log in
+                </Button>
+              </Link>
+              <Link href="/signup">
+                <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy hover:opacity-90 justify-start w-full">
+                  Sign up
+                </Button>
+              </Link>
             </nav>
           </div>
         )}
