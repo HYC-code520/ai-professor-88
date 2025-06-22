@@ -59,17 +59,16 @@ const Hero = () => {
                 Your browser does not support the video tag.
               </video>
               
-              {/* Perfect background-matched feather overlay */}
+              {/* Subtle feather effect */}
               <div className="absolute inset-0 pointer-events-none rounded-2xl" style={{
-                background: 'radial-gradient(ellipse at center, transparent 40%, rgba(26, 35, 50, 0.2) 60%, rgba(26, 35, 50, 0.5) 70%, rgba(26, 35, 50, 0.8) 80%, rgba(26, 35, 50, 0.95) 90%, rgba(26, 35, 50, 1) 100%)'
+                background: 'radial-gradient(ellipse at center, transparent 65%, rgba(26, 35, 50, 0.1) 75%, rgba(26, 35, 50, 0.3) 85%, rgba(26, 35, 50, 0.6) 95%, rgba(26, 35, 50, 0.8) 100%)'
               }}></div>
               
-              {/* Gradient-matched edge blending */}
+              {/* Light edge blending */}
               <div className="absolute inset-0 pointer-events-none rounded-2xl" style={{
                 background: `
-                  linear-gradient(135deg, rgba(26, 35, 50, 0.9) 0%, transparent 20%, transparent 80%, rgba(42, 74, 90, 0.9) 100%),
-                  linear-gradient(to right, rgba(26, 35, 50, 0.7) 0%, transparent 25%, transparent 75%, rgba(42, 74, 90, 0.7) 100%),
-                  linear-gradient(to bottom, rgba(26, 35, 50, 0.7) 0%, transparent 25%, transparent 75%, rgba(42, 74, 90, 0.7) 100%)
+                  linear-gradient(to right, rgba(26, 35, 50, 0.3) 0%, transparent 20%, transparent 80%, rgba(42, 74, 90, 0.3) 100%),
+                  linear-gradient(to bottom, rgba(26, 35, 50, 0.3) 0%, transparent 20%, transparent 80%, rgba(42, 74, 90, 0.3) 100%)
                 `
               }}></div>
             </div>
