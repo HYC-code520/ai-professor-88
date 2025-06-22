@@ -166,21 +166,6 @@ const Hero = () => {
             {/* Right side - Video */}
             <div className="lg:col-span-2 relative lg:pr-8">
               <div className="aspect-[3/4] rounded-2xl overflow-hidden max-w-sm mx-auto relative">
-                {/* Initial page load spinner */}
-                {showInitialLoader && (
-                  <div className="absolute inset-0 bg-dark-navy/80 rounded-2xl flex items-center justify-center z-20">
-                    <div className="flex flex-col items-center">
-                      <div className="w-12 h-12 border-4 border-accent-blue border-t-transparent rounded-full animate-spin mb-2"></div>
-                      <div className="text-pale-blue text-sm">Video Loading...</div>
-                    </div>
-                  </div>
-                )}
-                {/* Video loading spinner */}
-                {!videoLoaded && !showInitialLoader && (
-                  <div className="absolute inset-0 bg-dark-navy/50 rounded-2xl flex items-center justify-center z-10">
-                    <div className="w-8 h-8 border-2 border-accent-blue border-t-transparent rounded-full animate-spin"></div>
-                  </div>
-                )}
                 <video 
                   ref={videoRef}
                   className="w-full h-full object-cover"
@@ -193,12 +178,27 @@ const Hero = () => {
                   disablePictureInPicture
                   webkit-playsinline="true"
                   x5-playsinline="true"
-                  style={{ opacity: videoLoaded ? 1 : 0 }}
                 >
                   <source src="/demo-copy.mov" type="video/quicktime" />
                   <source src="/demo-copy.mov" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
+                
+                {/* Initial page load spinner overlay */}
+                {showInitialLoader && (
+                  <div className="absolute inset-0 bg-black/40 rounded-2xl flex items-center justify-center z-20">
+                    <div className="flex flex-col items-center bg-dark-navy/80 px-6 py-4 rounded-lg backdrop-blur-sm">
+                      <div className="w-12 h-12 border-4 border-accent-blue border-t-transparent rounded-full animate-spin mb-2"></div>
+                      <div className="text-pale-blue text-sm">Video Loading...</div>
+                    </div>
+                  </div>
+                )}
+                {/* Video loading spinner overlay */}
+                {!videoLoaded && !showInitialLoader && (
+                  <div className="absolute inset-0 bg-black/30 rounded-2xl flex items-center justify-center z-10">
+                    <div className="w-8 h-8 border-2 border-accent-blue border-t-transparent rounded-full animate-spin bg-dark-navy/80 p-3 rounded-full"></div>
+                  </div>
+                )}
                 
                 {/* Subtle feather effect */}
                 <div className="absolute inset-0 pointer-events-none rounded-2xl" style={{
