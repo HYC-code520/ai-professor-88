@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link } from "wouter";
-import { LogIn } from "lucide-react";
+import { LogIn, X } from "lucide-react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -19,7 +19,13 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-dark-navy via-dark-teal to-accent-blue flex items-center justify-center px-4">
       <div className="w-full max-w-md">
-        <div className="glass-effect rounded-lg p-8 hover-glow">
+        <div className="glass-effect rounded-lg p-8 hover-glow relative">
+          <Link 
+            href="/" 
+            className="absolute top-4 right-4 text-pale-blue hover:text-white transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </Link>
           <div className="text-center mb-8">
             <div className="flex items-center justify-center mb-4">
               <div className="w-12 h-12 rounded-full bg-gradient-to-r from-accent-blue to-pale-blue flex items-center justify-center">
@@ -81,14 +87,6 @@ const Login = () => {
             </p>
           </div>
 
-          <div className="mt-6 text-center">
-            <Link 
-              href="/" 
-              className="text-pale-blue hover:text-accent-blue transition-colors text-sm"
-            >
-              ← Back to home
-            </Link>
-          </div>
         </div>
       </div>
     </div>
