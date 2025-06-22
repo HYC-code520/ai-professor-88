@@ -184,19 +184,19 @@ const Hero = () => {
                   Your browser does not support the video tag.
                 </video>
                 
-                {/* Initial page load spinner overlay */}
+                {/* Initial page load spinner overlay - transparent background */}
                 {showInitialLoader && (
-                  <div className="absolute inset-0 bg-black/40 rounded-2xl flex items-center justify-center z-20">
-                    <div className="flex flex-col items-center bg-dark-navy/80 px-6 py-4 rounded-lg backdrop-blur-sm">
-                      <div className="w-12 h-12 border-4 border-accent-blue border-t-transparent rounded-full animate-spin mb-2"></div>
-                      <div className="text-pale-blue text-sm">Video Loading...</div>
+                  <div className="absolute inset-0 rounded-2xl flex items-center justify-center z-20">
+                    <div className="flex flex-col items-center bg-black/60 px-6 py-4 rounded-lg backdrop-blur-sm">
+                      <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin mb-2"></div>
+                      <div className="text-white text-sm font-medium">Video Loading...</div>
                     </div>
                   </div>
                 )}
                 {/* Video loading spinner overlay */}
                 {!videoLoaded && !showInitialLoader && (
-                  <div className="absolute inset-0 bg-black/30 rounded-2xl flex items-center justify-center z-10">
-                    <div className="w-8 h-8 border-2 border-accent-blue border-t-transparent rounded-full animate-spin bg-dark-navy/80 p-3 rounded-full"></div>
+                  <div className="absolute inset-0 rounded-2xl flex items-center justify-center z-10">
+                    <div className="w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin bg-black/50 p-2"></div>
                   </div>
                 )}
                 
