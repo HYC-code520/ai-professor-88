@@ -59,15 +59,22 @@ const Hero = () => {
                 Your browser does not support the video tag.
               </video>
               
-              {/* Feather effect overlay */}
-              <div className="absolute inset-0 pointer-events-none" style={{
-                mask: 'radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.3) 85%, rgba(0,0,0,0.7) 95%, rgba(0,0,0,1) 100%)',
-                WebkitMask: 'radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.1) 75%, rgba(0,0,0,0.3) 85%, rgba(0,0,0,0.7) 95%, rgba(0,0,0,1) 100%)'
+              {/* Enhanced feather effect overlay */}
+              <div className="absolute inset-0 pointer-events-none rounded-2xl" style={{
+                background: 'radial-gradient(ellipse at center, transparent 45%, rgba(18, 25, 38, 0.1) 65%, rgba(18, 25, 38, 0.3) 75%, rgba(18, 25, 38, 0.6) 85%, rgba(18, 25, 38, 0.9) 95%, rgba(18, 25, 38, 1) 100%)'
               }}></div>
               
-              {/* Alternative feather effect using box-shadow inset */}
+              {/* Additional edge fade using linear gradients */}
+              <div className="absolute inset-0 pointer-events-none rounded-2xl" style={{
+                background: `
+                  linear-gradient(to right, rgba(18, 25, 38, 0.8) 0%, transparent 15%, transparent 85%, rgba(18, 25, 38, 0.8) 100%),
+                  linear-gradient(to bottom, rgba(18, 25, 38, 0.8) 0%, transparent 15%, transparent 85%, rgba(18, 25, 38, 0.8) 100%)
+                `
+              }}></div>
+              
+              {/* Subtle inset shadow for depth */}
               <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{
-                boxShadow: 'inset 0 0 50px 10px rgba(0,0,0,0.3), inset 0 0 100px 30px rgba(0,0,0,0.1)'
+                boxShadow: 'inset 0 0 80px 20px rgba(18, 25, 38, 0.4)'
               }}></div>
             </div>
             
