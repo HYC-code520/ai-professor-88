@@ -47,7 +47,7 @@ const Hero = () => {
 
           {/* Right side - Video */}
           <div className="relative">
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-sm max-w-md mx-auto lg:mx-0 relative">
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden max-w-md mx-auto lg:mx-0 relative">
               <video 
                 className="w-full h-full object-cover"
                 autoPlay
