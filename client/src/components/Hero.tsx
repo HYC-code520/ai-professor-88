@@ -61,14 +61,28 @@ const Hero = () => {
                 playsInline
                 className="w-full h-auto block"
                 onLoadedData={() => {
+                  console.log('Video loaded successfully');
                   setVideoLoaded(true);
                 }}
                 onError={(e) => {
+                  console.error('Video error:', e);
                   setVideoError(true);
                 }}
+                onCanPlay={() => {
+                  console.log('Video can play');
+                }}
               >
-                <source src="/ai-tutor-video.mov" type="video/quicktime" />
+                <source src="/test-display.mp4" type="video/mp4" />
               </video>
+              
+              {!videoLoaded && !videoError && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-accent-blue/20 to-pale-blue/20 rounded-2xl">
+                  <div className="text-center text-pale-blue p-8">
+                    <div className="w-12 h-12 border-4 border-pale-blue border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-sm opacity-80">Loading video...</p>
+                  </div>
+                </div>
+              )}
               
               {videoError && (
                 <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-accent-blue/20 to-pale-blue/20 rounded-2xl">
