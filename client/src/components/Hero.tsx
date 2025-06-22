@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -28,20 +29,87 @@ const Hero = () => {
       setVideoLoaded(true);
     };
 
+    const handlePause = () => {
+      // Automatically resume if paused unexpectedly
+      setTimeout(() => {
+        if (video.paused && !video.ended) {
+          video.play().catch(console.error);
+        }
+      }, 100);
+    };
+
+    const handleStalled = () => {
+      // Handle network stalls
+      video.load();
+    };
+
+    const handleError = () => {
+      console.log("Video error, attempting reload");
+      video.load();
+    };
+
+    const handleEnded = () => {
+      // Ensure loop works properly
+      video.currentTime = 0;
+      video.play().catch(console.error);
+    };
+
     // Add event listeners
     video.addEventListener('loadstart', handleLoadStart);
     video.addEventListener('canplay', handleCanPlay);
     video.addEventListener('loadeddata', handleLoadedData);
+    video.addEventListener('pause', handlePause);
+    video.addEventListener('stalled', handleStalled);
+    video.addEventListener('error', handleError);
+    video.addEventListener('ended', handleEnded);
 
     // Force load on mount
     video.load();
+
+    // Set up interval to check video status
+    const checkVideoInterval = setInterval(() => {
+      if (video.paused && !video.ended && videoLoaded) {
+        video.play().catch(console.error);
+      }
+    }, 3000);
 
     return () => {
       video.removeEventListener('loadstart', handleLoadStart);
       video.removeEventListener('canplay', handleCanPlay);
       video.removeEventListener('loadeddata', handleLoadedData);
+      video.removeEventListener('pause', handlePause);
+      video.removeEventListener('stalled', handleStalled);
+      video.removeEventListener('error', handleError);
+      video.removeEventListener('ended', handleEnded);
+      clearInterval(checkVideoInterval);
     };
-  }, []);
+  }, [videoLoaded]);
+
+  // Intersection Observer for video visibility
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        setIsInView(entry.isIntersecting);
+        
+        if (entry.isIntersecting && videoLoaded) {
+          video.play().catch(console.error);
+        } else if (!entry.isIntersecting) {
+          video.pause();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(video);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [videoLoaded]);
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-12">
@@ -100,7 +168,11 @@ const Hero = () => {
                   muted
                   loop
                   playsInline
-                  preload="metadata"
+                  preload="auto"
+                  controls={false}
+                  disablePictureInPicture
+                  webkit-playsinline="true"
+                  x5-playsinline="true"
                   style={{ opacity: videoLoaded ? 1 : 0 }}
                 >
                   <source src="/demo-copy.mov" type="video/quicktime" />
