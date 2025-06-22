@@ -52,23 +52,25 @@ const Hero = () => {
 
           {/* Right Video */}
           <div className="flex justify-center lg:justify-end animate-fade-in">
-            <video 
-              ref={videoRef}
-              autoPlay 
-              loop 
-              muted 
-              playsInline
-              className="w-full max-w-sm h-auto rounded-2xl shadow-2xl border border-white/10"
-              style={{ minHeight: '300px' }}
-              onLoadedData={() => {
-                setVideoLoaded(true);
-              }}
-              onError={(e) => {
-                setVideoError(true);
-              }}
-            >
-              <source src="/jeremy-video.mp4" type="video/mp4" />
-            </video>
+            <div className="w-full max-w-sm bg-yellow-500 p-4 rounded-2xl">
+              <h3 className="text-black font-bold mb-2">Video Debug Section</h3>
+              <video 
+                ref={videoRef}
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                controls
+                width="320"
+                height="240"
+                className="w-full bg-red-500 border-4 border-blue-500"
+              >
+                <source src="/jeremy-video.mp4" type="video/mp4" />
+                <source src="/test-display.mp4" type="video/mp4" />
+                <p className="text-black">Your browser does not support HTML5 video.</p>
+              </video>
+              <p className="text-black mt-2">If you see this yellow box but no video, there's a video loading issue.</p>
+            </div>
           </div>
         </div>
       </div>
