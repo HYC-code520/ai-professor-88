@@ -64,9 +64,17 @@ const Hero = () => {
                 width="320"
                 height="240"
                 className="w-full bg-red-500 border-4 border-blue-500"
+                onLoadStart={() => console.log('Video load started')}
+                onLoadedMetadata={() => console.log('Video metadata loaded')}
+                onLoadedData={() => console.log('Video data loaded')}
+                onCanPlay={() => console.log('Video can play')}
+                onPlay={() => console.log('Video playing')}
+                onError={(e) => {
+                  console.error('Video error:', e);
+                  console.error('Video error target:', e.target);
+                }}
               >
-                <source src="/jeremy-video.mp4" type="video/mp4" />
-                <source src="/test-display.mp4" type="video/mp4" />
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
                 <p className="text-black">Your browser does not support HTML5 video.</p>
               </video>
               <p className="text-black mt-2">If you see this yellow box but no video, there's a video loading issue.</p>
