@@ -171,7 +171,7 @@ const Hero = () => {
                   <div className="absolute inset-0 bg-dark-navy/80 rounded-2xl flex items-center justify-center z-20">
                     <div className="flex flex-col items-center">
                       <div className="w-12 h-12 border-4 border-accent-blue border-t-transparent rounded-full animate-spin mb-2"></div>
-                      <div className="text-pale-blue text-sm">Loading...</div>
+                      <div className="text-pale-blue text-sm">Video Loading...</div>
                     </div>
                   </div>
                 )}
