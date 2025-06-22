@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link } from "wouter";
+import { Link } from "react-router-dom";
 import { UserPlus } from "lucide-react";
 
-const Signup = () => {
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [agreeToTerms, setAgreeToTerms] = useState(false);
@@ -13,16 +13,16 @@ const Signup = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Sign up attempt:", { email, password, agreeToTerms });
-    alert("Sign up functionality not implemented yet");
+    // Add registration logic here
   };
 
   const handleSkip = () => {
     console.log("Skip clicked");
-    alert("Skip functionality not implemented yet");
+    // Add skip logic here
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-dark-navy via-dark-teal to-accent-blue flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen flex items-center justify-center px-4 py-8">
       <div className="w-full max-w-md">
         <div className="glass-effect rounded-lg p-8 hover-glow">
           <div className="text-center mb-8">
@@ -46,7 +46,7 @@ const Signup = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-white/10 border-white/20 text-white placeholder:text-pale-blue/60 focus:border-accent-blue"
+                className="bg-white/10 border-white/20 text-white placeholder:text-pale-blue/60"
                 required
               />
             </div>
@@ -61,7 +61,7 @@ const Signup = () => {
                 placeholder="Create a password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="bg-white/10 border-white/20 text-white placeholder:text-pale-blue/60 focus:border-accent-blue"
+                className="bg-white/10 border-white/20 text-white placeholder:text-pale-blue/60"
               />
             </div>
 
@@ -108,7 +108,7 @@ const Signup = () => {
             <p className="text-pale-blue">
               Already have an account?{" "}
               <Link 
-                href="/login" 
+                to="/login" 
                 className="text-accent-blue hover:text-pale-blue transition-colors underline"
               >
                 Log In
@@ -118,7 +118,7 @@ const Signup = () => {
 
           <div className="mt-6 text-center">
             <Link 
-              href="/" 
+              to="/" 
               className="text-pale-blue hover:text-accent-blue transition-colors text-sm"
             >
               ← Back to home
@@ -130,4 +130,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignUp;
