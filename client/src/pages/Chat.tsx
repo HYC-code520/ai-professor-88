@@ -1,14 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { ArrowLeft, Volume2, Send, Menu, X } from "lucide-react";
+import { ArrowLeft, Volume2, Send } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
+import Header from "@/components/Header";
 
 const Chat = () => {
   const [message, setMessage] = useState("");
   const [isStarted, setIsStarted] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [messages, setMessages] = useState<Array<{text: string, sender: 'user' | 'jeremy' | 'loading'}>>([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -38,53 +38,10 @@ const Chat = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-dark-navy via-dark-teal to-dark-navy">
-      {/* Header */}
-      <header className="border-b border-white/10 bg-white/5 backdrop-blur-md">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/">
-              <div className="flex items-center space-x-2 hover:opacity-80 transition-opacity cursor-pointer">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-accent-blue to-pale-blue flex items-center justify-center">
-                  <span className="text-dark-navy font-bold text-sm">AI</span>
-                </div>
-                <span className="text-xl font-bold gradient-text">AI tutors</span>
-              </div>
-            </Link>
-            
-            <nav className="hidden md:flex items-center space-x-2">
-              <Button variant="ghost" className="text-pale-blue hover:text-accent-blue hover:bg-white/5">
-                Log in
-              </Button>
-              <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy hover:opacity-90">
-                Sign up
-              </Button>
-            </nav>
-
-            <button 
-              className="md:hidden text-pale-blue"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-
-          {isMenuOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t border-white/10">
-              <nav className="flex flex-col space-y-2 mt-4">
-                <Button variant="ghost" className="text-pale-blue hover:text-accent-blue hover:bg-white/5 justify-start">
-                  Log in
-                </Button>
-                <Button className="bg-gradient-to-r from-accent-blue to-pale-blue text-dark-navy hover:opacity-90 justify-start">
-                  Sign up
-                </Button>
-              </nav>
-            </div>
-          )}
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-12 pt-24">
         <div className="max-w-4xl mx-auto">
           {/* Page Title */}
           <div className="text-center mb-12">
