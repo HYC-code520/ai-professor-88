@@ -18,6 +18,11 @@ A dynamic multimedia web application with advanced video streaming capabilities 
 - Responsive video streaming with advanced loading states
 
 ## Recent Changes
+- **2025-01-29**: Updated branding with custom logo
+  - Replaced circular "AI" text logo with newlogo.png image
+  - Maintained consistent 32px size and rounded appearance
+  - Logo now displays across all pages via shared Header component
+
 - **2025-01-29**: Fixed navbar consistency across all pages by implementing shared Header component
   - Replaced custom header in Chat page with shared Header component
   - Added proper spacing (pt-24) to accommodate fixed header

@@ -13,9 +13,11 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <Link href="/">
             <div className="flex items-center space-x-2 hover:opacity-80 transition-opacity cursor-pointer">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-accent-blue to-pale-blue flex items-center justify-center">
-                <span className="text-dark-navy font-bold text-sm">AI</span>
-              </div>
+              <img 
+                src="/newlogo.png" 
+                alt="AI Tutors Logo"
+                className="w-8 h-8 rounded-full object-cover"
+              />
               <span className="text-xl font-bold gradient-text">AI tutors</span>
             </div>
           </Link>
