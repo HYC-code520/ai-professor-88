@@ -19,7 +19,7 @@ A dynamic multimedia web application with advanced video streaming capabilities 
 
 ## Recent Changes
 - **2025-01-29**: Updated branding with custom logo
-  - Replaced circular "AI" text logo with newlogo.png image
+  - Replaced circular "AI" text logo with newlogowstroke.png image
   - Maintained consistent 32px size and rounded appearance
   - Logo now displays across all pages via shared Header component
 

@@ -14,7 +14,7 @@ const Header = () => {
           <Link href="/">
             <div className="flex items-center space-x-2 hover:opacity-80 transition-opacity cursor-pointer">
               <img 
-                src="/newlogo.png" 
+                src="/newlogowstroke.png" 
                 alt="AI Tutors Logo"
                 className="w-8 h-8 rounded-full object-cover"
               />
